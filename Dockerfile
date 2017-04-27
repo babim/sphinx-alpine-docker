@@ -1,10 +1,8 @@
-FROM alpine:3.3
-MAINTAINER James White <dev.jameswhite@gmail.com>
+FROM babim/alpinebase:edge
 
 ADD sphinx.conf /etc/sphinx/sphinx.conf
 
-RUN echo "http://dl-5.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-	&& apk --update add sphinx \
+RUN apk add --no-cache sphinx \
 	&& mkdir -p /var/lib/sphinx \
 	&& mkdir -p /var/lib/sphinx/data \
 	&& mkdir -p /var/log/sphinx \
